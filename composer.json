@@ -1,0 +1,106 @@
+{
+  "name": "nelson-tech/ronatec",
+  "keywords": [
+    "WordPress",
+    "Composer",
+    "Ronatec"
+  ],
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Michael Nelson",
+      "email": "michael@nelson.tech",
+      "homepage": "https://nelson.tech"
+    }
+  ],
+  "type": "project",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://connect.advancedcustomfields.com"
+    },
+    {
+      "type": "composer",
+      "url": "https://composer.deliciousbrains.com"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/funkhaus/wp-graphql-cors.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/nelson-tech/wp-headless-child.git"
+    }
+  ],
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/installers": true,
+      "johnpbloch/wordpress-core-installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "require": {
+    "php": ">=8.1",
+    "axepress/wp-graphql-rank-math": "^0.0.8",
+    "composer/installers": "^2.2",
+    "deliciousbrains-plugin/wp-offload-media": "^3.1",
+    "funkhaus/wp-graphql-cors": "^2.1",
+    "johnpbloch/wordpress": "6.*",
+    "nelson-tech/headless-child": "dev-no-payment",
+    "oscarotero/env": "^2.1",
+    "vlucas/phpdotenv": "^5.3",
+    "wp-graphql/wp-graphql": "1.13.8",
+    "wp-graphql/wp-graphql-acf": "^0.6.1",
+    "wp-graphql/wp-graphql-jwt-authentication": "^0.6.0",
+    "wp-graphql/wp-graphql-smart-cache": "^1.0",
+    "wp-graphql/wp-graphql-woocommerce": "^0.12.1",
+    "wpackagist-plugin/acf-extended": "^0.8.9",
+    "wpackagist-plugin/admin-menu-editor": "^1.10",
+    "wpackagist-plugin/classic-editor": "^1.6",
+    "wpackagist-plugin/codepress-admin-columns": "^4.5",
+    "wpackagist-plugin/custom-post-type-ui": "^1.13",
+    "wpackagist-plugin/edit-custom-fields": "^0.1.10",
+    "wpackagist-plugin/post-types-order": "1.9.9.2",
+    "wpackagist-plugin/seo-by-rank-math": "^1.0",
+    "wpackagist-plugin/spinupwp": "*",
+    "wpackagist-plugin/taxonomy-terms-order": "^1.7",
+    "wpackagist-plugin/woocommerce": "^7.3",
+    "wpackagist-plugin/woocommerce-gateway-stripe": "^7.1",
+    "wpackagist-plugin/wp-mail-smtp": "^3.7",
+    "wpackagist-theme/twentytwentythree": "^1.0",
+    "wpengine/advanced-custom-fields-pro": "^6.0"
+  },
+  "extra": {
+    "wordpress-install-dir": "public/wp",
+    "installer-paths": {
+      "public/content/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "public/content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "public/content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "DeliciousBrains\\SpinupWPComposerSite\\": "app/"
+    }
+  },
+  "require-dev": {
+    "humanmade/coding-standards": "^1.1"
+  }
+}
