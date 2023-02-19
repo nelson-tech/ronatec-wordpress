@@ -41,6 +41,10 @@ App::define('CONTENT_DIR', '/content');
 App::define('WP_CONTENT_DIR', $webroot_dir . CONTENT_DIR);
 App::define('WP_CONTENT_URL', WP_HOME . CONTENT_DIR);
 
+if (env('DB_SSL') == 'true') {
+	App::define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+}
+
 App::define('DB_NAME', env('DB_NAME'));
 App::define('DB_USER', env('DB_USER'));
 App::define('DB_PASSWORD', env('DB_PASSWORD'));
