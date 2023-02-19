@@ -3,7 +3,7 @@
 .idea
 wp-cli.local.yml
 old
-
+logs
 
 # Exclude sensitive data
 .env
